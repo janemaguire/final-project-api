@@ -6,31 +6,43 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-["users"].each do |table_name|
+["users", "categories", "props"].each do |table_name|
   ActiveRecord::Base.connection.execute("TRUNCATE #{table_name} RESTART IDENTITY CASCADE")
 end
 
-User.create!([{
+mike = User.create!(
   username: "mickyginger",
   email: "mike.hayden@ga.co",
   password: "password",
   password_confirmation: "password"
-},{
+)
+
+emily = User.create!(
   username: "emilyi",
   email: "emily.isacke@ga.co",
   password: "password",
   password_confirmation: "password"
-}])
+)
 
-Prop.create!([{
+circus = Category.create!(
+  name: "Circus"
+)
+
+pantomime = Category.create!(
+  name: "Pantomime"
+)
+
+category3 = Category.create!(
+  name: "1950s"
+)
+
+prop1 = Prop.create!(
   name: "Carousel horse",
   image: "http://bestoncarousels.com/wp-content/uploads/2015/03/carousel-horses-sale.jpg",
   description: "Full size carousel horse",
-  user_id: "2",
-  category: "Fairground",
+  user: emily,
   available: true
-  }])
+)
 
-Category.create!([{
-  name: "Circus"
-  }])
+prop1.categories << circus
+prop1.categories << pantomime

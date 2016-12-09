@@ -52,6 +52,6 @@ class PropsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def prop_params
-      params.require(:prop).permit(:name, :image, :description, :user_id, :category, :available)
+      params.permit(:name, :image, :description, :user_id, :available, category_ids:[])
     end
 end
