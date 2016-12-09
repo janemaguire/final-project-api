@@ -21,3 +21,16 @@ User.create!([{
   password: "password",
   password_confirmation: "password"
 }])
+
+Prop.create!([{
+  name: "Carousel horse",
+  image: "http://bestoncarousels.com/wp-content/uploads/2015/03/carousel-horses-sale.jpg",
+  description: "Full size carousel horse",
+  user_id: "2",
+  category: "Fairground",
+  available: true
+  }])
+
+Category.create!([{
+  name: "Circus"
+  }])
