@@ -39,7 +39,7 @@ category3 = Category.create!(
 prop1 = Prop.create!(
   name: "Carousel horse",
   image: "http://bestoncarousels.com/wp-content/uploads/2015/03/carousel-horses-sale.jpg",
-  description: "Full size carousel horse",
+  description: "Full size carousel horse, slight chips on paintwork",
   user: emily,
   available: true
 )

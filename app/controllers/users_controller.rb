@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     if @user == current_user
       @user.destroy
     else
-      rendor json: { errors: ["Unauthorized"] }, status: 401
+      render json: { errors: ["Unauthorized"] }, status: 401
     end
   end
 
@@ -57,6 +57,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :email, :password_digest)
+      params.require(:user).permit(:username, :address, :email, :phone, :image, :password_digest)
     end
 end
