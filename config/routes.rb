@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   scope :api do
 
     resources :props
-    resources :categories
+    resources :categories, only: [:index, :show]
     resources :users, except: [:create]
 
     post 'register', to: 'auth#register'

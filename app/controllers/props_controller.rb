@@ -16,7 +16,7 @@ class PropsController < ApplicationController
 
   # POST /props
   def create
-    @prop = Prop.new(prop_params)
+    @prop = Prop.new(Uploader.upload(prop_params))
     @prop.user = current_user
 
     if @prop.save
@@ -28,10 +28,17 @@ class PropsController < ApplicationController
 
   # PATCH/PUT /props/1
   def update
-    if @prop.update(prop_params)
-      render json: @prop
+
+    if @prop.user == current_user
+
+      if @prop.update(prop_params)
+        render json: @prop
+      else
+        render json: @prop.errors, status: :unprocessable_entity
+      end
+
     else
-      render json: @prop.errors, status: :unprocessable_entity
+      render json: { errors: ["Unauthorized"] }, status: 401
     end
   end
 
@@ -52,6 +59,6 @@ class PropsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def prop_params
-      params.permit(:name, :image, :description, :user_id, :available, category_ids:[])
+      params.permit(:name, :description, :user_id, :available, :base64, category_ids:[])
     end
 end

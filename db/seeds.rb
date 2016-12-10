@@ -41,8 +41,9 @@ prop1 = Prop.create!(
   image: "http://bestoncarousels.com/wp-content/uploads/2015/03/carousel-horses-sale.jpg",
   description: "Full size carousel horse, slight chips on paintwork",
   user: emily,
-  available: true
+  available: true,
+  category_ids: [1,2]
 )
 
-prop1.categories << circus
-prop1.categories << pantomime
+# prop1.categories << circus
+# prop1.categories << pantomime
