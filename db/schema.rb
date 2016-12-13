@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209145949) do
+ActiveRecord::Schema.define(version: 20161213195011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20161209145949) do
     t.text     "address"
     t.string   "phone"
     t.string   "image"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_foreign_key "props", "users"

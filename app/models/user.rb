@@ -5,4 +5,10 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, on: :create
 
   has_many :props
+
+  mount_uploader :image, ImageUploader
+
+  geocoded_by :address
+  after_validation :geocode
+
 end
