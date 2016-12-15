@@ -10,26 +10,12 @@
   ActiveRecord::Base.connection.execute("TRUNCATE #{table_name} RESTART IDENTITY CASCADE")
 end
 
-# mike = User.create!(
-#   username: "mickyginger",
-#   email: "mike.hayden@ga.co",
-#   password: "password",
-#   password_confirmation: "password"
-# )
-#
-# emily = User.create!(
-#   username: "emilyi",
-#   email: "emily.isacke@ga.co",
-#   password: "password",
-#   password_confirmation: "password"
-# )
-
 almeida = User.create!(
   username: "Almeida Theatre",
   email: "almeidatheatre@propswap.com",
   address: "Almeida Street, Islington, London, N1 1TA",
   phone: "020 7359 4404",
-  image: "",
+  image: File.open(File.join(Rails.root, "db/images/almeida.png")),
   password: "password",
   password_confirmation: "password"
 )
@@ -39,7 +25,7 @@ arcola = User.create!(
   email: "arcolatheatre@propswap.com",
   address: "24 Ashwin Street, Dalston, London, E8 3DL",
   phone: "020 7503 1646",
-  image: "",
+  image: File.open(File.join(Rails.root, "db/images/arcola.png")),
   password: "password",
   password_confirmation: "password"
 )
@@ -49,7 +35,7 @@ bac = User.create!(
   email: "bac@propswap.com",
   address: "Lavender Hill, Battersea, London, SW11 5TN",
   phone: "020 7223 2223",
-  image: "",
+  image: File.open(File.join(Rails.root, "db/images/bac.png")),
   password: "password",
   password_confirmation: "password"
 )
@@ -59,7 +45,7 @@ cpt = User.create!(
   email: "camdenpeoples@propswap.com",
   address: "58-60 Hampstead Road, London, NW1 2PY",
   phone: "08444 771000",
-  image: "",
+  image: File.open(File.join(Rails.root, "db/images/cpt.png")),
   password: "password",
   password_confirmation: "password"
 )
@@ -69,17 +55,27 @@ newdiorama = User.create!(
   email: "newdiorama@propswap.com",
   address: "15-16 Triton Street, Regent's Place, London, NW1 3BF",
   phone: "020 7383 9034",
-  image: "",
+  image: File.open(File.join(Rails.root, "db/images/newdiorama.png")),
   password: "password",
   password_confirmation: "password"
 )
 
 royalcourt = User.create!(
   username: "Royal Court Theatre",
-  email: "@propswap.com",
+  email: "royalcourt@propswap.com",
   address: "Sloane Square, London, SW1W 8AS",
   phone: "020 7565 5000",
-  image: "",
+  image: File.open(File.join(Rails.root, "db/images/royal-court.png")),
+  password: "password",
+  password_confirmation: "password"
+)
+
+southwark = User.create!(
+  username: "Southwark Playhouse",
+  email: "southwark@propswap.com",
+  address: "77-85 Newington Causeway, London, SE1 6BD",
+  phone: "020 7565 5000",
+  image: File.open(File.join(Rails.root, "db/images/southwark.png")),
   password: "password",
   password_confirmation: "password"
 )
@@ -89,7 +85,7 @@ youngvic = User.create!(
   email: "youngvic@propswap.com",
   address: "66 The Cut, London, SE1 8LZ",
   phone: "020 7922 2922",
-  image: "",
+  image: File.open(File.join(Rails.root, "db/images/young-vic.png")),
   password: "password",
   password_confirmation: "password"
 )
